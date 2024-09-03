@@ -34,7 +34,7 @@ function Contact() {
     if (res.success) {
       Swal.fire({
         title: "Success!",
-        text: "Your message has beem successfully sent",
+        text: "Your message has been successfully sent",
         icon: "success",
         confirmButtonText: "Ok",
       });
