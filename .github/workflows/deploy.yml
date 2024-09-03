@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main # or the branch you want to deploy from
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,13 +24,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy
-        env:
-          # Set up environment variables required for deployment
-          # Example: NETLIFY_AUTH_TOKEN, NETLIFY_SITE_ID
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: |
-          # Example deploy command for Netlify
-          npm install -g netlify-cli
-          netlify deploy --prod --dir=build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
