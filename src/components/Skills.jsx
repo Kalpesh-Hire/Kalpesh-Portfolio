@@ -31,7 +31,7 @@ function Skills() {
               </ul>
             </div>
             {/* Library and frameworks */}
-            <div className="hover:shadow-lg hover:shadow-indigo-500/50 hover:translate-y-0 hover:duration-500 flex flex-col my-2 items-center justify-centerstify-ce border-[2px] rounded-xl p-2 border-gray-500">
+            <div className="hover:shadow-lg w-[355px] hover:shadow-indigo-500/50 hover:translate-y-0 hover:duration-500 flex flex-col my-2 items-center justify-center border-[2px] rounded-xl p-2 border-gray-500">
               <h1 className="my-6 text-xl md:text-xl">
                 Library and Frameworks
               </h1>
