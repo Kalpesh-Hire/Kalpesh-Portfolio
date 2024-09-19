@@ -13,13 +13,13 @@ function Skills() {
           <h2 className=" text-4xl font-bold text-center mb-12">
             My <span className="text-violet-500">Skills</span>
           </h2>
-          <div className="flex flex-col md:flex-row space-x-2 items-center justify-center w-screen">
+          <div className="grid grid-cols-3 md:flex-row space-x-2 items-center justify-center w-full">
             {/* Languages */}
             <div className="hover:shadow-lg hover:shadow-indigo-500/50 hover:translate-y-0 hover:duration-500 flex flex-col my-2 items-center border-[2px] rounded-xl p-6 border-gray-500">
               <h1 className="my-6 text-xl md:text-xl ">
                 Programming Languages
               </h1>
-              <ul className="flex w-full">
+              <ul className="flex">
                 {iconsFront.map(({ icons, title, id }) => (
                   <li className="" key={id}>
                     <h1 className="hover:translate-y-2 hover:duration-500 text-3xl md:text-4xl md:p-3 border-[2px] rounded-full mx-3  p-2 cursor-pointer ">
