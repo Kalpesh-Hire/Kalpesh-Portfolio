@@ -13,7 +13,7 @@ function Skills() {
           <h2 className=" text-4xl font-bold text-center mb-12">
             My <span className="text-violet-500">Skills</span>
           </h2>
-          <div className="grid md:grid-cols-3 md:flex-row space-x-2 items-center justify-center w-full h-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:flex-row space-x-2 items-center justify-center md:w-full w-[400px] h-full">
             {/* Languages */}
             <div className="hover:shadow-lg hover:shadow-indigo-500/50 hover:translate-y-0 hover:duration-500 flex flex-col my-2 items-center border-[2px] rounded-xl py-2 border-gray-500 h-[230px]">
               <h1 className="my-6 text-xl md:text-xl ">
@@ -41,7 +41,7 @@ function Skills() {
                     <h1 className="text-3xl md:mx-6 md:text-4xl md:p-3 border-[2px] rounded-full mx-6 p-2 cursor-pointer hover:translate-y-2 duration-500">
                       {icons}
                     </h1>
-                    <h1 className="text-sm my-3 mx-2 md:mx-6">{title}</h1>
+                    <h1 className="text-sm my-3 mx-5 md:mx-6">{title}</h1>
                   </li>
                 ))}
               </ul>
@@ -55,7 +55,7 @@ function Skills() {
                     <h1 className="text-3xl md:mx-4 md:text-4xl md:p-3 border-[2px] rounded-full mx-6 p-2 cursor-pointer hover:translate-y-2 duration-500">
                       {icons}
                     </h1>
-                    <h1 className="text-sm my-3 mx-2 md:mx-6">{title}</h1>
+                    <h1 className="text-sm my-3 mx-5 md:mx-6">{title}</h1>
                   </li>
                 ))}
               </ul>

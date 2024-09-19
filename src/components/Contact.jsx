@@ -124,7 +124,7 @@ function Contact() {
               </div>
             </div>
             {/* Form */}
-            <div className="m-10">
+            <div className="m-10 w-full md:w-[500px]">
               <form onSubmit={onSubmit}>
                 <div className="pt-0 mb-3">
                   <input
@@ -158,7 +158,7 @@ function Contact() {
                     required
                   />
                 </div>
-                <div className="pt-0 mb-3">
+                <div className="pt-0 mb-3 flex justify-center">
                   <button
                     className=" flex group duration-300 items-center hover:shadow-lg focus:outline-none px-6 py-2 mb-1 text-sm font-bold hover:text-white uppercase transition-all ease-linear hover:bg-blue-500 rounded shadow outline-none"
                     type="submit"
