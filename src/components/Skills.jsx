@@ -8,12 +8,12 @@ function Skills() {
         id="skills"
         className="scroll-mt-10 max-w-screen-2xl container mx-auto px-4 md:px-20 py-20"
       >
-        <div className="container mx-auto px-8">
+        <div className="container mx-auto grid">
           <h3 className="text-xl font-sm text-center mb-5">See</h3>
           <h2 className=" text-4xl font-bold text-center mb-12">
             My <span className="text-violet-500">Skills</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 md:flex-row space-x-2 items-center justify-center md:w-full w-[400px] h-full">
+          <div className="grid md:grid-cols-3 md:flex-row space-x-2 items-center justify-center md:w-full w-[400px] h-full">
             {/* Languages */}
             <div className="hover:shadow-lg hover:shadow-indigo-500/50 hover:translate-y-0 hover:duration-500 flex flex-col my-2 items-center border-[2px] rounded-xl py-2 border-gray-500 h-[230px]">
               <h1 className="my-6 text-xl md:text-xl ">
