@@ -33,7 +33,10 @@ const projectData = [
     discription:
       "An employee management system built using React, Tailwind CSS, and Context API allows an admin to add tasks for employees, which are dynamically managed and displayed in real time. Employees can view assigned tasks, mark them as completed, and provide a description or feedback upon completion.",
     btn: (
-      <a href="" className="flex flex-row items-center">
+      <a
+        href="https://github.com/Kalpesh-Hire/EmployeeManagement.git"
+        className="flex flex-row items-center"
+      >
         <FaExternalLinkAlt className="mx-1" /> Visit
       </a>
     ),
@@ -53,36 +56,7 @@ const projectData = [
       </a>
     ),
   },
-  {
-    title: "Dance Academy LandingPage",
-    Tech: "WebFlow",
-    discription:
-      "A dance academy landing page designed with Webflow provides a sleek, visually appealing layout, featuring sections like About Us Classes, and Instructors. Webflow’s drag-and-drop interface allows for smooth interactions and responsive design, making the page engaging and easy to navigate.",
-    btn: (
-      <a
-        href="https://landing-page-6726e6.webflow.io/"
-        target="_blank"
-        className="flex flex-row items-center"
-      >
-        <FaExternalLinkAlt className="mx-1" /> Visit
-      </a>
-    ),
-  },
-  {
-    title: "LeaderBoard",
-    Tech: "Reactjs, css3",
-    discription:
-      "A dance academy landing page designed with Webflow provides a sleek, visually appealing layout, featuring sections like About Us Classes, and Instructors. Webflow’s drag-and-drop interface allows for smooth interactions and responsive design, making the page engaging and easy to navigate.",
-    btn: (
-      <a
-        href="https://kalpesh-hire.github.io/LeaderBoard/"
-        className="flex flex-row items-center"
-        target="_blank"
-      >
-        <FaExternalLinkAlt className="mx-1" /> Visit
-      </a>
-    ),
-  },
+
   {
     title: "Portfolio",
     Tech: "Reactjs, Tailwind, React-Hooks",
