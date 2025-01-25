@@ -28,6 +28,17 @@ const projectData = [
     ),
   },
   {
+    title: "EmployeeManagement",
+    Tech: "React, ContextAPI, Tailwind",
+    discription:
+      "An employee management system built using React, Tailwind CSS, and Context API allows an admin to add tasks for employees, which are dynamically managed and displayed in real time. Employees can view assigned tasks, mark them as completed, and provide a description or feedback upon completion.",
+    btn: (
+      <a href="" className="flex flex-row items-center">
+        <FaExternalLinkAlt className="mx-1" /> Visit
+      </a>
+    ),
+  },
+  {
     title: "Dance Academy LandingPage",
     Tech: "Reactjs,CSS3,Hooks",
     discription:
