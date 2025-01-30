@@ -2,6 +2,21 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const projectData = [
   {
+    title: "Spotify Clone- MusicRe",
+    Tech: "React, contextAPI, Tailwind",
+    discription:
+      "MusicRay is a Spotify clone built with React.js, Context API for state management, and Tailwind CSS for styling, offering a sleek and responsive music streaming experience. It features dynamic playlists, song controls, and a modern UI.",
+    btn: (
+      <a
+        href="https://musicray.netlify.app/"
+        target="_blank"
+        className="flex flex-row items-center"
+      >
+        <FaExternalLinkAlt className="mx-1" /> Visit
+      </a>
+    ),
+  },
+  {
     title: "Job portal",
     Tech: "Html, css, js, bootstrap, Php",
     discription:
@@ -22,7 +37,10 @@ const projectData = [
     discription:
       "A dance academy website showcases various dance classes, schedules, and instructor profiles, helping users explore and enroll in programs. Built using HTML, CSS, and JavaScript, it offers smooth navigation and engaging visuals for a vibrant, user-friendly experience. The platform also features online registration and event announcements, making it easy to join and stay updated on dance activities.",
     btn: (
-      <a href="" className="flex flex-row items-center">
+      <a
+        href="https://github.com/Kalpesh-Hire"
+        className="flex flex-row items-center"
+      >
         <FaExternalLinkAlt className="mx-1" /> Visit
       </a>
     ),
