@@ -1,11 +1,11 @@
 import React from "react";
 import { IoMdClose } from "react-icons/io";
 
-function WebDeveloper({ onclose }) {
+function WebDeveloper({ onclose,modalRef1 }) {
   return (
     <>
-      <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
-        <div className="flex flex-col justify-center items-center ">
+      <div  className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
+        <div ref={modalRef1} className="flex flex-col justify-center items-center ">
           <button onClick={onclose} className="place-self-end text-3xl">
             <IoMdClose />
           </button>

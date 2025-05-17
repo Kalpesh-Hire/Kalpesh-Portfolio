@@ -56,7 +56,7 @@ function Projects() {
           >
             {projectData.map(({ title, discription, Tech, btn }) => (
               <>
-                <div className="h-[300px] mb-5 bg-slate-50 group mx-3 relative overflow-hidden shadow-md rounded-3xl p-3 flex flex-col space-y-2 items-center justify-center text-center">
+                <div className="h-[400px] mb-5 bg-slate-50 group mx-3 relative overflow-hidden shadow-md rounded-3xl p-3 flex flex-col space-y-2 items-center justify-center text-center">
                   <h1 className="text-xl md:text-2xl">{title}</h1>
                   <p className="text-base">Tech:- {Tech}</p>
                   <p className="text-xs">{discription}</p>

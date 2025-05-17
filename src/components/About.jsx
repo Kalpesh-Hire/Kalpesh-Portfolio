@@ -4,7 +4,7 @@ import Resume from "../../public/Kalpesh-Hire Resume.pdf";
 import { PiCertificateFill } from "react-icons/pi";
 import { FaBriefcase } from "react-icons/fa";
 import { MdOutlineReadMore } from "react-icons/md";
-import avtar from "../../public/Avatar.png";
+import avtar from "../../public/Kalpesh Hire.jpg";
 
 function About() {
   return (
@@ -21,7 +21,7 @@ function About() {
           <div className="flex flex-col md:flex-row items-center md:space-x-12">
             <img
               src={avtar}
-              className="w-72 h-80 rounded-3xl object-cover mb-8 md:mb-0"
+              className="w-72 h-80 rounded-3xl object-fit mb-8 md:mb-0"
               alt=""
             />
             <div className="flex-1">

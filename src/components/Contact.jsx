@@ -124,7 +124,7 @@ function Contact() {
               </div>
             </div>
             {/* Form */}
-            <div className="m-10 w-full md:w-[500px]">
+            <div className="m-10 z-0 w-full md:w-[500px]">
               <form onSubmit={onSubmit}>
                 <div className="pt-0 mb-3">
                   <input

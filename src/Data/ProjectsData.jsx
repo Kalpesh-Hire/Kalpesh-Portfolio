@@ -2,6 +2,21 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const projectData = [
   {
+    title: "Clinic Management Sysytem",
+    Tech: "React,Bootstrap,Spring,Java, JWT",
+    discription:
+      "The Clinic Management System is a full-stack web application designed to streamline administrative and clinical operations. Built using React for the frontend and Spring Boot with Java for the backend, it features secure authentication via JWT, patient and doctor management, appointment scheduling, and responsive UI with Bootstrap.",
+    btn: (
+      <a
+        href="https://clinic.xformtechnologies.com/"
+        target="_blank"
+        className="flex flex-row items-center"
+      >
+        <FaExternalLinkAlt className="mx-1" /> Visit
+      </a>
+    ),
+  },
+  {
     title: "Spotify Clone- MusicRe",
     Tech: "React, contextAPI, Tailwind",
     discription:

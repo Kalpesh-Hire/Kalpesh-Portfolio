@@ -15,10 +15,50 @@ import {
   FaBootstrap,
 } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
+import { Helmet } from "react-helmet";
 
 function Home() {
   return (
     <>
+      <Helmet>
+        <title>Kalpesh Hire | Web Developer Portfolio</title>
+        <meta
+          name="description"
+          content="I am Kalepesh Hire, a React developer specializing in modern web design using React, Tailwind, and more."
+        />
+        <meta
+          name="keywords"
+          content="Kalpesh Hire, React Developer, Frontend Portfolio, Web Developer"
+        />
+        <meta name="author" content="Kalpesh Hire" />
+        <meta
+          property="og:image"
+          content="https://kalpesh-hire.github.io/Kalpesh-Portfolio/Kalpesh Hire.jpg"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kalpesh Hire",
+      "url": "https://kalpesh-hire.github.io/Kalpesh-Portfolio/",
+      "sameAs": [
+        "https://github.com/Kalpesh-Hire",
+        "https://www.linkedin.com/in/kalpeshhire/"
+      ],
+      "jobTitle": "Frontend Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      }
+    }
+  `,
+          }}
+        />
+      </Helmet>
+
       <div
         id="home"
         className=" scroll-mt-10 max-w-screen-2xl container mx-auto md:mb-60 px-4 md:px-20 my-20"

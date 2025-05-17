@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SiPinboard } from "react-icons/si";
 import { MdArrowRightAlt } from "react-icons/md";
 import front from "../../public/fronEnd icon.svg";
@@ -9,6 +9,25 @@ import WebDeveloper from "./ServiceModel/WebDeveloper";
 function Services() {
   const [showFrontend, setShowFrontend] = useState(false);
   const [showWebDeveloper, setShowWebDeveloper] = useState(false);
+  const modalRef = useRef();
+  const modalRef1 = useRef();
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (showFrontend && modalRef.current && !modalRef.current.contains(event.target)) {
+        setShowFrontend(false);
+      }
+      if (showWebDeveloper && modalRef1.current && !modalRef1.current.contains(event.target)) {
+        setShowWebDeveloper(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showFrontend, showWebDeveloper]);
   return (
     <>
       <div
@@ -36,7 +55,10 @@ function Services() {
                     <MdArrowRightAlt className="text-xl" />
                   </button>
                   {showFrontend && (
-                    <FrontEnd onclose={() => setShowFrontend(false)} />
+                    <FrontEnd
+                      modalRef={modalRef}
+                      onclose={() => setShowFrontend(false)}
+                    />
                   )}
                 </div>
               </div>
@@ -56,7 +78,10 @@ function Services() {
                     <MdArrowRightAlt className="text-xl" />
                   </button>
                   {showWebDeveloper && (
-                    <WebDeveloper onclose={() => setShowWebDeveloper(false)} />
+                    <WebDeveloper
+                      modalRef1={modalRef1}
+                      onclose={() => setShowWebDeveloper(false)}
+                    />
                   )}
                 </div>
               </div>
