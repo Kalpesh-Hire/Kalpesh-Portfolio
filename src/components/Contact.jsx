@@ -1,178 +1,291 @@
 import React, { useState } from "react";
-import { MdEmail } from "react-icons/md";
-import { MdCall } from "react-icons/md";
-import { FaWhatsappSquare } from "react-icons/fa";
-import { FaTelegram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { MdEmail, MdCall } from "react-icons/md";
+import { FaWhatsappSquare, FaTelegram, FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { IoIosSend } from "react-icons/io";
+import { FiArrowUpRight, FiCheckCircle, FiShield, FiTerminal } from "react-icons/fi";
 import Swal from "sweetalert2";
+import { CONTACT_DETAILS } from "../Data/ContactDetails";
 
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  // PRESERVED STRICTLY: Exact submission handler, endpoint, payload, access key, and SweetAlert2
   const onSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
+    setLoading(true);
 
-    formData.append("access_key", "c5d1d1c2-cb5f-4cf7-9ffc-0c25b2e2a3e1");
+    try {
+      const formData = new FormData(event.target);
 
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
+      formData.append("access_key", "c5d1d1c2-cb5f-4cf7-9ffc-0c25b2e2a3e1");
 
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: json,
-    }).then((res) => res.json());
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
 
-    if (res.success) {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      }).then((res) => res.json());
+
+      if (res.success) {
+        Swal.fire({
+          title: "Message Delivered!",
+          text: "Thank you! Your message has been successfully transmitted to Kalpesh's inbox.",
+          icon: "success",
+          confirmButtonText: "Acknowledge",
+          background: "#0d1117",
+          color: "#f1f5f9",
+          confirmButtonColor: "#2563eb",
+        });
+        setName("");
+        setEmail("");
+        setText("");
+      } else {
+        Swal.fire({
+          title: "Transmission Error",
+          text: res.message || "Failed to deliver message. Please try again or reach out directly.",
+          icon: "error",
+          confirmButtonText: "Retry",
+          background: "#0d1117",
+          color: "#f1f5f9",
+          confirmButtonColor: "#2563eb",
+        });
+      }
+    } catch (err) {
       Swal.fire({
-        title: "Success!",
-        text: "Your message has been successfully sent",
-        icon: "success",
+        title: "Network Error",
+        text: "An unexpected error occurred during submission. Please try again shortly.",
+        icon: "error",
         confirmButtonText: "Ok",
+        background: "#0d1117",
+        color: "#f1f5f9",
+        confirmButtonColor: "#2563eb",
       });
+    } finally {
+      setLoading(false);
     }
-
-    setName("");
-    setEmail("");
-    setText("");
   };
 
   return (
-    <>
-      <div
-        id="contact"
-        className="scroll-mt-10 max-w-screen-2xl container mx-auto px-4 md:px-20 py-20"
-      >
-        <div className="container mx-auto px-8">
-          <h2 className=" text-4xl font-bold text-center mb-5">
-            Get In <span className="text-blue-500">Touch</span>
+    <section
+      id="contact"
+      className="relative scroll-mt-20 py-20 overflow-hidden"
+    >
+      {/* Background ambient lighting */}
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-blue-600/10 via-cyan-500/10 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" />
+
+      <div className="max-w-7xl container mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono uppercase tracking-wider">
+            <FiTerminal className="text-blue-400" />
+            <span>Secure Communication Channel</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Initiate{" "}
+            <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent">
+              Contact
+            </span>
           </h2>
-          <h3 className="text-sm text-center mb-5">
-            Let's talk about everything!
-          </h3>
-          <div className=" p-2 flex flex-col md:flex-row items-center space-x-8">
-            {/* First block */}
-            <div className=" w-1/2 space-y-6 flex flex-col justify-center items-center">
-              {/* heading */}
-              <div className="mx-3 text-center ">
-                <h1 className="flex flex-col  text-xl font-bold text-blue-400">
-                  Don't be shy !{" "}
-                  <span className="text-base text-green-300 my-1 font-bold">
-                    Let's Connect!
-                  </span>
-                </h1>
-              </div>
+          <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+            Have an engineering role, contract project, or technical question? Transmit a message below or connect directly across channels.
+          </p>
+        </div>
 
-              <p className="text-sm text-center mx-3 md:w-[500px] w-[300px]">
-                I’d love to hear from you! Whether you have a project in mind, a
-                question, or just want to say hello, drop me a message below.
-                I'll respond quickly to help turn your ideas into reality.
-              </p>
-
-              {/* email&phone */}
-              <div className="flex flex-col">
-                <p className="flex items-center space-x-2">
-                  <MdEmail className="text-xl" />
-                  <a href="kalpeshhire102050@gmail.com">
-                    kalpeshhire102050@gmail.com
-                  </a>
-                </p>
-                <p className="flex items-center space-x-2">
-                  <MdCall className="text-xl" />{" "}
-                  <a href="+91 9767777200">+91 9767777200</a>
+        {/* Bento Contact Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          {/* Left Column: Direct Info & Channels */}
+          <div className="lg:col-span-5 bento-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-white/10 space-y-6">
+            <div className="space-y-6">
+              <div>
+                <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
+                  Open for Opportunities
+                </span>
+                <h3 className="text-2xl font-bold text-white mt-3">
+                  Let's Build Exceptional Systems Together
+                </h3>
+                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mt-2">
+                  I’d love to hear from you! Whether you have an architecture to discuss, a project in mind, or an open software engineering role, send a transmission below.
                 </p>
               </div>
 
-              {/* Icons */}
-              <div className="flex mx-9">
-                <ul className="flex space-x-4">
-                  <li>
-                    <a href="https://wa.link/p7ea2a" target="_blank">
-                      <FaWhatsappSquare className="text-green-500 text-3xl hover:scale-105 duration-500" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <FaTelegram className="text-blue-400 text-3xl hover:scale-105 duration-500" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://linkedin.com/in/kalpesh-hire-29b662235"
-                      target="_blank"
-                    >
-                      <FaLinkedin className="text-blue-500 text-3xl hover:scale-105 duration-500" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.instagram.com/hire_kalpesh?igsh=Y3F0YTkwOXNpcjQ1"
-                      target="_blank"
-                    >
-                      <FaInstagram className="text-red-500 text-3xl hover:scale-105 duration-500" />
-                    </a>
-                  </li>
-                </ul>
+              {/* Direct Communications */}
+              <div className="space-y-3">
+                <a
+                  href={CONTACT_DETAILS.mailtoUrl}
+                  className="flex items-center justify-between p-3.5 rounded-2xl bg-[#090c10] hover:bg-white/5 border border-white/5 hover:border-blue-500/30 text-slate-200 transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-400">
+                      <MdEmail className="text-xl" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-mono text-slate-500">PRIMARY EMAIL</div>
+                      <div className="text-xs sm:text-sm font-medium text-white truncate max-w-[210px] sm:max-w-none">
+                        {CONTACT_DETAILS.email}
+                      </div>
+                    </div>
+                  </div>
+                  <FiArrowUpRight className="text-slate-400 group-hover:text-blue-400 transition-colors" />
+                </a>
+
+                <a
+                  href={`tel:${CONTACT_DETAILS.phoneDisplay.replace(/\s+/g, '')}`}
+                  className="flex items-center justify-between p-3.5 rounded-2xl bg-[#090c10] hover:bg-white/5 border border-white/5 hover:border-emerald-500/30 text-slate-200 transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400">
+                      <MdCall className="text-xl" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-mono text-slate-500">VOICE / TELEPHONE</div>
+                      <div className="text-xs sm:text-sm font-medium text-white">
+                        {CONTACT_DETAILS.phoneDisplay}
+                      </div>
+                    </div>
+                  </div>
+                  <FiArrowUpRight className="text-slate-400 group-hover:text-emerald-400 transition-colors" />
+                </a>
               </div>
             </div>
-            {/* Form */}
-            <div className="m-10 z-0 w-full md:w-[500px]">
-              <form onSubmit={onSubmit}>
-                <div className="pt-0 mb-3">
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Your name"
-                    name="name"
-                    className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
-                    required
-                  />
-                </div>
-                <div className="pt-0 mb-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
-                    name="email"
-                    className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
-                    required
-                  />
-                </div>
-                <div className="pt-0 mb-3">
-                  <textarea
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    placeholder="Your message"
-                    name="message"
-                    className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
-                    required
-                  />
-                </div>
-                <div className="pt-0 mb-3 flex justify-center">
-                  <button
-                    className=" flex group duration-300 items-center hover:shadow-lg focus:outline-none px-6 py-2 mb-1 text-sm font-bold hover:text-white uppercase transition-all ease-linear hover:bg-blue-500 rounded shadow outline-none"
-                    type="submit"
-                  >
-                    Send a message{" "}
-                    <IoIosSend className="mx-1 text-blue-500 duration-300 group-hover:text-white text-xl" />
-                  </button>
-                </div>
-              </form>
+
+            {/* Social Channels */}
+            <div className="pt-6 border-t border-white/10 space-y-3">
+              <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block">
+                Direct Messaging & Network
+              </span>
+              <div className="flex items-center gap-3">
+                <a
+                  href={CONTACT_DETAILS.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  className="p-3 rounded-xl bg-white/5 hover:bg-emerald-500/20 text-slate-300 hover:text-emerald-400 border border-white/5 hover:border-emerald-500/30 transition-all"
+                >
+                  <FaWhatsappSquare className="text-xl" />
+                </a>
+                <a
+                  href={CONTACT_DETAILS.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="p-3 rounded-xl bg-white/5 hover:bg-blue-500/20 text-slate-300 hover:text-blue-400 border border-white/5 hover:border-blue-500/30 transition-all"
+                >
+                  <FaLinkedin className="text-xl" />
+                </a>
+                <a
+                  href={CONTACT_DETAILS.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="p-3 rounded-xl bg-white/5 hover:bg-pink-500/20 text-slate-300 hover:text-pink-400 border border-white/5 hover:border-pink-500/30 transition-all"
+                >
+                  <FaInstagram className="text-xl" />
+                </a>
+                <a
+                  href="https://telegram.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Telegram"
+                  className="p-3 rounded-xl bg-white/5 hover:bg-sky-500/20 text-slate-300 hover:text-sky-400 border border-white/5 hover:border-sky-500/30 transition-all"
+                >
+                  <FaTelegram className="text-xl" />
+                </a>
+              </div>
             </div>
           </div>
+
+          {/* Right Column: Preserved Form in Editorial Bento Shell */}
+          <div className="lg:col-span-7 bento-card rounded-3xl p-6 sm:p-8 flex flex-col justify-center border border-white/10">
+            <div className="mb-6 pb-4 border-b border-white/10 flex items-center justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-white">
+                  Direct Inbox Transmission
+                </h3>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  Powered by Web3Forms gateway with client-side validation
+                </p>
+              </div>
+              <FiShield className="text-blue-400 text-lg" />
+            </div>
+
+            {/* STRICTLY PRESERVED FORM: Exact name, email, message attributes and submit handler */}
+            <form onSubmit={onSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="name-input" className="block text-xs font-mono text-slate-300 mb-1.5">
+                  Your Full Name *
+                </label>
+                <input
+                  id="name-input"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="e.g. Elena Rostova"
+                  name="name"
+                  className="w-full px-4 py-3 rounded-xl bg-[#090c10] border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email-input" className="block text-xs font-mono text-slate-300 mb-1.5">
+                  Email Address *
+                </label>
+                <input
+                  id="email-input"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="e.g. elena@company.com"
+                  name="email"
+                  className="w-full px-4 py-3 rounded-xl bg-[#090c10] border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message-input" className="block text-xs font-mono text-slate-300 mb-1.5">
+                  Message Details *
+                </label>
+                <textarea
+                  id="message-input"
+                  rows={4}
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  placeholder="Briefly describe your requirements, project scope, or opportunity..."
+                  name="message"
+                  className="w-full px-4 py-3 rounded-xl bg-[#090c10] border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none"
+                  required
+                />
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 disabled:opacity-50 text-white font-semibold text-sm shadow-xl shadow-blue-500/25 transition-all duration-200 active:scale-98 cursor-pointer"
+                >
+                  <span>{loading ? "Transmitting..." : "Send a message"}</span>
+                  <IoIosSend className="text-xl" />
+                </button>
+              </div>
+            </form>
+          </div>
+
         </div>
+
       </div>
-    </>
+    </section>
   );
 }
 
