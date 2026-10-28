@@ -1,6 +1,6 @@
 import React from "react";
 import Resume from "../../public/Kalpesh-Hire Resume.pdf";
-import avtar from "../../public/Kalpesh Hire.jpg";
+import DeveloperAvatarPortrait from "./DeveloperAvatarPortrait";
 import { FaGraduationCap, FaCode, FaBriefcase, FaEnvelope, FaPhoneAlt, FaFileDownload } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
 
@@ -30,10 +30,9 @@ function About() {
             <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
             
             <div className="relative overflow-hidden rounded-2xl border border-white/10 mb-6 aspect-[4/5] bg-slate-900">
-              <img
-                src={avtar}
-                alt="Kalpesh Hire"
-                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              <DeveloperAvatarPortrait
+                size="lg"
+                className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#090a0f] via-transparent to-transparent opacity-60" />
               

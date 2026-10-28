@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { projectData } from "../Data/ProjectsData";
 import { FiFilter, FiExternalLink, FiCode, FiLayers, FiCheckCircle } from "react-icons/fi";
 import { FaLaptopCode, FaDatabase, FaMobileAlt, FaDesktop, FaServer } from "react-icons/fa";
+import AnimatedProjectPreview from "./AnimatedProjectPreview";
 
 const FILTER_DOMAINS = [
   { id: "all", label: "All Projects" },
@@ -42,7 +43,7 @@ function InteractiveProjectExplorer() {
           </p>
         </div>
 
-        {/* Priority 4-Pillar Grid: MERP, WMS, CRM, HRMS */}
+        {/* Priority 4-Pillar Grid: MERP, WMS, CRM, HRMS with Animated Previews */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           
           {/* Card 1: MERP */}
@@ -68,7 +69,10 @@ function InteractiveProjectExplorer() {
                 </p>
               </div>
 
-              <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              {/* Animated Project Visual Preview */}
+              <AnimatedProjectPreview type="merp" />
+
+              <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
                 <div className="flex items-start gap-2">
                   <FiCheckCircle className="text-cyan-400 mt-1 shrink-0 text-sm" />
                   <span>
@@ -98,16 +102,6 @@ function InteractiveProjectExplorer() {
                   </span>
                 ))}
               </div>
-              {/* <div className="p-1 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-semibold text-xs transition-all">
-                <a
-                  href="https://github.com/Kalpesh-Hire"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 flex items-center gap-1.5"
-                >
-                  <FiExternalLink /> View Project
-                </a>
-              </div> */}
             </div>
           </div>
 
@@ -134,7 +128,10 @@ function InteractiveProjectExplorer() {
                 </p>
               </div>
 
-              <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              {/* Animated Project Visual Preview */}
+              <AnimatedProjectPreview type="wms" />
+
+              <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
                 <div className="flex items-start gap-2">
                   <FiCheckCircle className="text-blue-400 mt-1 shrink-0 text-sm" />
                   <span>
@@ -164,16 +161,6 @@ function InteractiveProjectExplorer() {
                   </span>
                 ))}
               </div>
-              {/* <div className="p-1 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-all">
-                <a
-                  href="https://github.com/Kalpesh-Hire"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 flex items-center gap-1.5"
-                >
-                  <FiExternalLink /> View Project
-                </a>
-              </div> */}
             </div>
           </div>
 
@@ -200,7 +187,10 @@ function InteractiveProjectExplorer() {
                 </p>
               </div>
 
-              <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              {/* Animated Project Visual Preview */}
+              <AnimatedProjectPreview type="crm" />
+
+              <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
                 <div className="flex items-start gap-2">
                   <FiCheckCircle className="text-emerald-400 mt-1 shrink-0 text-sm" />
                   <span>
@@ -230,16 +220,6 @@ function InteractiveProjectExplorer() {
                   </span>
                 ))}
               </div>
-              {/* <div className="p-1 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all">
-                <a
-                  href="https://github.com/Kalpesh-Hire"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 flex items-center gap-1.5"
-                >
-                  <FiExternalLink /> View Project
-                </a>
-              </div> */}
             </div>
           </div>
 
@@ -266,7 +246,10 @@ function InteractiveProjectExplorer() {
                 </p>
               </div>
 
-              <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              {/* Animated Project Visual Preview */}
+              <AnimatedProjectPreview type="hrms" />
+
+              <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
                 <div className="flex items-start gap-2">
                   <FiCheckCircle className="text-purple-400 mt-1 shrink-0 text-sm" />
                   <span>
@@ -296,16 +279,6 @@ function InteractiveProjectExplorer() {
                   </span>
                 ))}
               </div>
-              {/* <div className="p-1 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs transition-all">
-                <a
-                  href="https://github.com/Kalpesh-Hire"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 flex items-center gap-1.5"
-                >
-                  <FiExternalLink /> View Project
-                </a>
-              </div> */}
             </div>
           </div>
 
@@ -385,16 +358,6 @@ function InteractiveProjectExplorer() {
                       </span>
                     )}
                   </div>
-
-                  {/* Commented out view project button as requested */}
-                  {/* <div className="flex items-center justify-between pt-1">
-                    <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-white px-3.5 py-2 rounded-xl bg-blue-600/90 hover:bg-blue-500 transition-colors shadow-md">
-                      {project.btn}
-                    </div>
-                    <span className="text-[11px] font-mono text-slate-500">
-                      Explore &rarr;
-                    </span>
-                  </div> */}
                 </div>
               </div>
             );

@@ -12,7 +12,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
 import FloatingContactDock from "./components/FloatingContactDock";
-import InitialLoader from "./components/InitialLoader";
+import IllustratedLoader from "./components/IllustratedLoader";
 
 function App() {
   const [loaderFinished, setLoaderFinished] = useState(false);
@@ -22,8 +22,8 @@ function App() {
       {/* 1. Custom Interactive Cursor (Desktop with fine pointer) */}
       <CustomCursor />
 
-      {/* 3. Premium Initial Animated Loader */}
-      <InitialLoader onComplete={() => setLoaderFinished(true)} />
+      {/* 3. Illustrated Developer Character Workstation Loader */}
+      <IllustratedLoader onComplete={() => setLoaderFinished(true)} />
 
       {/* 2. Floating Contact and Social Media Dock */}
       {loaderFinished && <FloatingContactDock />}
@@ -32,13 +32,13 @@ function App() {
       <Navbar />
 
       <main>
-        {/* Section A: Developer Command Center & Interactive Pipeline */}
+        {/* Section A: Developer Command Center & Animated Developer Workstation Avatar */}
         <Home />
 
         {/* Section B: The Interactive Developer Universe (Connected Technology Mesh) */}
         <DeveloperUniverse />
 
-        {/* Featured Projects: MERP, WMS, CRM, HRMS, and Mahasewa */}
+        {/* Featured Projects: Prioritizing MERP, WMS, CRM, HRMS, and Mahasewa with Animated Previews */}
         <InteractiveProjectExplorer />
 
         {/* Section E: Interactive Architecture Lab (Simulating Web, Mobile, Desktop, Real-Time) */}

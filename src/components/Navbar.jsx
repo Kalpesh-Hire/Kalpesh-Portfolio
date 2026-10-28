@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Profile from "../../public/Profile picture.png";
+import DeveloperAvatarPortrait from "./DeveloperAvatarPortrait";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
 import { FiArrowUpRight, FiTerminal } from "react-icons/fi";
@@ -85,10 +85,9 @@ function Navbar() {
             className="flex items-center gap-3 group focus:outline-none"
           >
             <div className="relative">
-              <img
-                src={Profile}
-                className="h-9 w-9 rounded-xl object-cover ring-1 ring-white/20 group-hover:ring-blue-400/60 transition-all duration-300"
-                alt="Kalpesh Hire"
+              <DeveloperAvatarPortrait
+                size="sm"
+                className="ring-1 ring-white/20 group-hover:ring-blue-400/60 transition-all duration-300"
               />
               <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 rounded-full ring-2 ring-[#090b10]"></span>
             </div>

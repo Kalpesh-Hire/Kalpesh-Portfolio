@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Avatar from "../../public/Avatar.png";
 import Resume from "../../public/Kalpesh-Hire Resume.pdf";
 import { ReactTyped } from "react-typed";
 import {
@@ -14,18 +13,16 @@ import {
   FaBootstrap,
 } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { SiSpringboot, SiPostgresql, SiMongodb } from "react-icons/si";
 import { 
   FiDownload, 
   FiArrowRight, 
-  FiCpu, 
   FiLayers, 
-  FiDatabase, 
-  FiServer, 
-  FiGlobe,
-  FiTerminal
+  FiTerminal, 
+  FiCheckCircle 
 } from "react-icons/fi";
 import { Helmet } from "react-helmet";
+import AnimatedDeveloperAvatar from "./AnimatedDeveloperAvatar";
+import FloatingIllustrations from "./FloatingIllustrations";
 
 function Home() {
   const [activeLayer, setActiveLayer] = useState("frontend");
@@ -67,7 +64,7 @@ function Home() {
         <title>Kalpesh Hire | Software Developer & Full-Stack Engineer</title>
         <meta
           name="description"
-          content="Kalpesh Hire is a Software Developer at Xform Technologies specializing in React.js, Spring Boot, JavaScript, and building full-stack web, mobile, and system architectures."
+          content="Kalpesh Hire is a Software Developer at Xform Technologies specializing in React.js, Spring Boot, JavaScript, and building full-stack enterprise web and mobile architectures."
         />
         <meta
           name="keywords"
@@ -106,7 +103,10 @@ function Home() {
         id="home"
         className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden"
       >
-        {/* Subtle grid and ambient backdrop */}
+        {/* Carefully Composed Floating Illustrated Elements (Behind Content) */}
+        <FloatingIllustrations />
+
+        {/* Ambient background lightings */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-blue-600/15 via-indigo-600/10 to-cyan-500/10 blur-[130px] pointer-events-none -z-10 rounded-full" />
         <div className="absolute top-1/3 left-10 w-80 h-80 bg-emerald-500/10 blur-[110px] pointer-events-none -z-10 rounded-full" />
 
@@ -126,9 +126,9 @@ function Home() {
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="text-slate-400">STACK:</span>
+              <span className="text-slate-400">CORE STACK:</span>
               <span className="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                React.js · Spring Boot · JS
+                React.js · Spring Boot · Tailwind
               </span>
             </div>
           </div>
@@ -156,8 +156,8 @@ function Home() {
                   <ReactTyped
                     strings={[
                       "Enterprise Full-Stack Platforms (MERP & WMS)",
+                      "CRM & HRMS Enterprise Architectures",
                       "Scalable React & Next.js Frontends",
-                      "Cross-Platform Mobile Ecosystems",
                       "Spring Boot & Java REST APIs",
                       "Modern Dark Bento Experiences",
                     ]}
@@ -171,7 +171,7 @@ function Home() {
 
               {/* Bio description */}
               <p className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                I’m <strong className="text-slate-200 font-semibold">Kalpesh Hire</strong>, a Software Developer at Xform Technologies building enterprise resource systems (Mahasewa MERP, WMS), dashboards, and full-stack solutions. Experienced across React.js, Tailwind CSS, JavaScript, and Spring Boot with Java, bridging intuitive user interfaces with robust backend architectures.
+                I’m <strong className="text-slate-200 font-semibold">Kalpesh Hire</strong>, a Software Developer at Xform Technologies building enterprise resource systems (MERP, WMS, CRM, HRMS), dashboards, and full-stack solutions. Experienced across React.js, Tailwind CSS, JavaScript, and Spring Boot with Java, bridging intuitive user interfaces with robust backend architectures.
               </p>
 
               {/* CTAs */}
@@ -207,7 +207,7 @@ function Home() {
                     <FaGithub size={15} />
                   </a>
                   <a
-                    href="https://linkedin.com/in/kalpesh-hire-29b662235"
+                    href="https://linkedin.com/in/kalpeshhire/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
@@ -216,7 +216,7 @@ function Home() {
                     <FaLinkedin size={15} />
                   </a>
                   <a
-                    href="https://www.instagram.com/hire_kalpesh?igsh=Y3F0YTkwOXNpcjQ1"
+                    href="https://www.instagram.com/hire_kalpesh/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
@@ -247,89 +247,9 @@ function Home() {
 
             </div>
 
-            {/* Right Column: Interactive System Architecture Overview */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="bento-card rounded-3xl p-6 sm:p-7 relative overflow-hidden group">
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
-                  <div className="flex items-center gap-2">
-                    <FiLayers className="text-cyan-400" />
-                    <span className="text-xs font-mono font-semibold text-white uppercase tracking-wider">
-                      Interactive System Pipeline
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">
-                    Click node to inspect
-                  </span>
-                </div>
-
-                <p className="text-xs text-slate-400 mb-4 leading-relaxed">
-                  How layers connect in modern enterprise engineering: select any layer to inspect its architectural responsibility.
-                </p>
-
-                {/* Vertical Connected Flow Diagram */}
-                <div className="space-y-2 relative">
-                  {architectureLayers.map((layer, index) => {
-                    const isSelected = activeLayer === layer.id;
-                    return (
-                      <div key={layer.id} className="relative">
-                        <button
-                          type="button"
-                          onClick={() => setActiveLayer(layer.id)}
-                          className={`w-full text-left p-3.5 rounded-2xl border transition-all duration-300 flex items-center justify-between ${
-                            isSelected
-                              ? `${layer.color} shadow-lg shadow-blue-500/10 scale-[1.02]`
-                              : "bg-[#090b10]/90 border-white/5 hover:border-white/20 text-slate-300"
-                          }`}
-                        >
-                          <div className="flex items-center gap-3">
-                            <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-white/5 text-slate-300">
-                              0{index + 1}
-                            </span>
-                            <div>
-                              <div className="text-xs sm:text-sm font-bold text-white">
-                                {layer.title}
-                              </div>
-                              <div className="text-[11px] font-mono text-slate-400 mt-0.5">
-                                {layer.desc}
-                              </div>
-                            </div>
-                          </div>
-                          <span className="text-xs font-mono opacity-70">
-                            {isSelected ? "Active" : "Inspect"}
-                          </span>
-                        </button>
-
-                        {/* Connector arrow between nodes */}
-                        {index < architectureLayers.length - 1 && (
-                          <div className="w-full flex justify-center py-1">
-                            <span className="text-[11px] font-mono text-slate-600">↓ REST / WebSocket Stream ↓</span>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Detail Box for Selected Node */}
-                <div className="mt-4 p-3.5 rounded-2xl bg-white/5 border border-white/10 text-xs">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                    <span className="font-mono font-semibold text-white uppercase text-[11px]">
-                      {architectureLayers.find((l) => l.id === activeLayer)?.title} Scope
-                    </span>
-                  </div>
-                  <p className="text-slate-300 text-xs leading-relaxed">
-                    {architectureLayers.find((l) => l.id === activeLayer)?.detail}
-                  </p>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                  <span>Architecture Lab</span>
-                  <a href="#architecture" className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
-                    Full Lab View &rarr;
-                  </a>
-                </div>
-              </div>
+            {/* Right Column: Animated Developer Avatar Workstation Illustration */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center">
+              <AnimatedDeveloperAvatar />
             </div>
 
           </div>

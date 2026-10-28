@@ -1,6 +1,6 @@
 import React from "react";
 import Resume from "../../public/Kalpesh-Hire Resume.pdf";
-import avtar from "../../public/Kalpesh Hire.jpg";
+import DeveloperAvatarPortrait from "./DeveloperAvatarPortrait";
 import { 
   FaBriefcase, 
   FaGraduationCap, 
@@ -108,10 +108,9 @@ function ProfessionalJourney() {
         {/* Top Profile Summary Strip */}
         <div className="mb-14 bento-card rounded-3xl p-6 sm:p-8 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
-            <img
-              src={avtar}
-              alt="Kalpesh Hire"
-              className="w-20 h-20 rounded-2xl object-cover ring-2 ring-blue-500/30"
+            <DeveloperAvatarPortrait
+              size="md"
+              className="ring-2 ring-blue-500/30 shrink-0"
             />
             <div>
               <div className="flex items-center justify-center sm:justify-start gap-2">

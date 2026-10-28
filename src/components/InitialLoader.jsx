@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Profile from "../../public/Profile picture.png";
+import DeveloperAvatarPortrait from "./DeveloperAvatarPortrait";
 
 /**
  * InitialLoader
@@ -58,10 +58,9 @@ function InitialLoader({ onComplete }) {
         {/* Brand Avatar with Glowing Ring */}
         <div className="relative">
           <div className="w-16 h-16 rounded-2xl p-0.5 bg-gradient-to-tr from-blue-500 via-indigo-500 to-cyan-400 shadow-2xl shadow-blue-500/30">
-            <img
-              src={Profile}
-              alt="Kalpesh Hire"
-              className="w-full h-full object-cover rounded-[14px]"
+            <DeveloperAvatarPortrait
+              size="md"
+              className="w-full h-full rounded-[14px]"
             />
           </div>
           <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-[#07090e]"></span>
